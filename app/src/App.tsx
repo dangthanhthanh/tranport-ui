@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+
+// Example: Zustand store (auto theme)
+import { useThemeStore } from "./store/theme";
+
+// Example: shadcn/ui Toaster for notifications
+import { Toaster } from "@/components/ui/toaster";
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Zustand: theme management
+  const theme = useThemeStore((state) => state.theme);
+
+  React.useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  }, [theme]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <BrowserRouter>
+      <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 theme-transition">
+        {/* Main app content goes here */}
+        {/* Example: <Routes /> for actual app routing */}
+        <h1 className="text-2xl font-bold mb-4">🚚 Tramy Transport UI</h1>
+        <p className="mb-8">Welcome to your modern React + Vite + Tailwind + Zustand + shadcn/ui project!</p>
+        {/* Toast notifications */}
+        <Toaster />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

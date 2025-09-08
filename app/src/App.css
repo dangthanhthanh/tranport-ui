@@ -1,42 +1,24 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* App.css - Use Tailwind for the main styling. You can add custom classes here if needed. */
+
+/* Example: Custom scrollbar for demo */
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+::-webkit-scrollbar-thumb {
+  background: #a3a3a3;
+  border-radius: 9999px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* If you want to apply custom backgrounds or themes, use Tailwind's utility classes in your JSX. */
+
+/* For dark mode, prefer Tailwind dark: modifiers in JSX, but you can provide a fallback here. */
+body {
+  @apply bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* Optional: Transition for theme changes */
+.theme-transition {
+  transition: background-color 0.2s, color 0.2s;
 }

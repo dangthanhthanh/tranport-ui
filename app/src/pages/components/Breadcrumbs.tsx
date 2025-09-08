@@ -1,0 +1,39 @@
+import React from 'react';
+import { Col, Row, Container, Breadcrumb } from '@themesberg/react-bootstrap';
+import Documentation from "../../components/Documentation";
+
+const BreadcrumbsPage: React.FC = () => (
+  <article>
+    <Container className="px-0">
+      <Row className="d-flex flex-wrap flex-md-nowrap align-items-center py-4">
+        <Col className="d-block mb-4 mb-md-0">
+          <h1 className="h2">Breadcrumbs</h1>
+          <p className="mb-0">
+            Use breadcrumbs to indicate the navigational hierarchy of the current page.
+          </p>
+        </Col>
+      </Row>
+      <Documentation
+        title="Example"
+        description={
+          <p>
+            Use the <code>&lt;Breadcrumb&gt;</code> component to show a clear navigational hierarchy for your users.
+          </p>
+        }
+        scope={{ Row, Col, Breadcrumb }}
+        imports={`import { Breadcrumb } from '@themesberg/react-bootstrap';`}
+        example={`<Row>
+  <Col lg={6}>
+    <Breadcrumb listProps={{ className: "breadcrumb-primary breadcrumb-text-light text-white" }}>
+      <Breadcrumb.Item href="#home">Home</Breadcrumb.Item>
+      <Breadcrumb.Item href="#library">Library</Breadcrumb.Item>
+      <Breadcrumb.Item active>Data</Breadcrumb.Item>
+    </Breadcrumb>
+  </Col>
+</Row>`}
+      />
+    </Container>
+  </article>
+);
+
+export default BreadcrumbsPage;
